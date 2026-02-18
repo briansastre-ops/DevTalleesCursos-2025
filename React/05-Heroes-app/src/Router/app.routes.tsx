@@ -1,10 +1,14 @@
+import { lazy } from "react";
+
 import { createBrowserRouter } from "react-router";
-import { HeroPages } from "../hero/pages/hero/HeroPages";
-import { SearchPage } from "../hero/pages/search/SearchPage";
-import { HomePage } from "../hero/pages/home/HomePage";
-import AdminPage from "../admin/pages/AdminPage";
-import { HeroesLayout } from "../hero/layouts/HeroesLayout";
-import { AdminLayout } from "../admin/layout/AdminLayout";
+import { HeroPages } from "@/hero/pages/hero/HeroPages";
+//import { SearchPage } from "../hero/pages/search/SearchPage";
+import { HomePage } from "@/hero/pages/home/HomePage";
+import AdminPage from "@/admin/pages/AdminPage";
+import { HeroesLayout } from "@/hero/layouts/HeroesLayout";
+import { AdminLayout } from "@/admin/layout/AdminLayout";
+
+const SearchPage = lazy(() => import("@/hero/pages/search/SearchPage"));
 
 export const AppRouter = createBrowserRouter([
   {
@@ -19,7 +23,7 @@ export const AppRouter = createBrowserRouter([
         path: "heroes/1", // Ruta específica para un héroe, por ejemplo, con ID 1
       },
       {
-        path: "search",
+        path: "/search",
         element: <SearchPage />,
       },
     ],
